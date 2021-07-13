@@ -4,11 +4,11 @@ import connection.jdbc.SingleConnection;
 
 import java.sql.Connection;
 
-public class UserPosDao {
+public class UserDao {
 
     private Connection connection  = null;
 
-    public UserPosDao() {
+    public UserDao() {
         connection = SingleConnection.getConnection();
     }
 }

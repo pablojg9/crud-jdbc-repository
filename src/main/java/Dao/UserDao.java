@@ -1,7 +1,7 @@
 package Dao;
 
 import connection.jdbc.SingleConnection;
-import model.UserModel;
+import model.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,7 +15,7 @@ public class UserDao {
         connection = SingleConnection.getConnection();
     }
 
-    public void save(UserModel user) {
+    public void save(User user) {
         try {
             String sql = "insert into useposjava (idtable, nome, email) values (?, ?, ?)";
             PreparedStatement insert = connection.prepareStatement(sql);

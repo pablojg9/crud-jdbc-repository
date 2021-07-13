@@ -1,5 +1,5 @@
 import Dao.UserDao;
-import model.UserModel;
+import model.User;
 import org.junit.Test;
 
 public class BankJdbc {
@@ -7,7 +7,7 @@ public class BankJdbc {
     @Test
     public void initBank() {
         UserDao userDao = new UserDao();
-        UserModel userModel = new UserModel();
+        User userModel = new User();
 
         userModel.setId(5L);
         userModel.setNome("keyla");

@@ -2,7 +2,6 @@ import Dao.UserDao;
 import model.User;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class BankJdbc {
@@ -44,6 +43,4 @@ public class BankJdbc {
         System.out.println(user);
 
     }
-
-
 }

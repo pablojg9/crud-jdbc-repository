@@ -61,4 +61,27 @@ public class UserDao {
         return listUser;
     }
 
+    public User search(Long id) throws Exception {
+        User userReturn = new User();
+
+        String sql = "SELECT * FROM  useposjava WHERE idtable = " + id;
+
+        PreparedStatement listStatement = connection.prepareStatement(sql);
+        ResultSet result = listStatement.executeQuery();
+
+        while (result.next()) { // Retornar apenas 1 ou nem nenhum
+
+
+            userReturn.setId(result.getLong("idtable"));
+            userReturn.setNome(result.getString("nome"));
+            userReturn.setEmail(result.getString("email"));
+
+        }
+
+        return userReturn;
+    }
+
+
+
+
 }

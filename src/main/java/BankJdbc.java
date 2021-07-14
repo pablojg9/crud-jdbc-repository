@@ -2,6 +2,7 @@ import Dao.UserDao;
 import model.User;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BankJdbc {
@@ -32,6 +33,15 @@ public class BankJdbc {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+    }
+
+    @Test
+    public void initSearch() throws Exception {
+        UserDao userDao = new UserDao();
+
+        User user = userDao.search(5L);
+        System.out.println(user);
 
     }
 

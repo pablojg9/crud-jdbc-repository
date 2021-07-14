@@ -20,16 +20,22 @@ public class UserDao {
 
     public void save(User user) {
         try {
+
+            // Adicionando o user
             String sql = "insert into useposjava (idtable, nome, email) values (?, ?, ?)";
             PreparedStatement insert = connection.prepareStatement(sql);
+            // assim que criar o id ele vai pegar o email e mandar pro banco
             insert.setLong(1, user.getId());
+            //assim que criar o nome ele vai pegar o email e mandar pro banco
             insert.setString(2, user.getNome());
+            //assim que criar o email ele vai pegar o email e mandar pro banco
             insert.setString(3, user.getEmail());
             insert.execute();
             connection.commit();
 
         } catch (Exception e) {
             try {
+                //RollBack caso ele tenha algum erro.
                 connection.rollback();
             }catch (SQLException sqlException) {
                 sqlException.printStackTrace();
@@ -43,14 +49,16 @@ public class UserDao {
     public List<User> list() throws Exception {
         List<User> listUser = new ArrayList<User>();
 
-            String sql = "SELECT * FROM  useposjava";
 
+
+            String sql = "SELECT * FROM  useposjava";
+            // Preprando o PreparedStatement para a variavel sql;
             PreparedStatement listStatement = connection.prepareStatement(sql);
             ResultSet result = listStatement.executeQuery();
 
             while (result.next()) {
                 User user = new User();
-
+                //Enquanto for verdadeiro o result que está na tabela vai executar o while e add o user.
                 user.setId(result.getLong("idtable"));
                 user.setNome(result.getString("nome"));
                 user.setEmail(result.getString("email"));
@@ -61,6 +69,7 @@ public class UserDao {
         return listUser;
     }
 
+    //Busanco o user atráves do id
     public User search(Long id) throws Exception {
         User userReturn = new User();
 
@@ -71,7 +80,7 @@ public class UserDao {
 
         while (result.next()) { // Retornar apenas 1 ou nem nenhum
 
-
+            // Após encontrar o id ele retorna o id, nome, email
             userReturn.setId(result.getLong("idtable"));
             userReturn.setNome(result.getString("nome"));
             userReturn.setEmail(result.getString("email"));
@@ -83,22 +92,22 @@ public class UserDao {
 
     public void update(User user) throws SQLException {
         try {
-            String sql = "UPDATE useposjava SET nome = ? WHERE idtable = " + user.getId();
+            // Fazendo o update do nome e email, usando SET NOME = ? e SET email = ?
+            String sql = "UPDATE useposjava SET nome = ?, email = ? WHERE idtable = " + user.getId();
 
             PreparedStatement updateStatement = connection.prepareStatement(sql);
 
             updateStatement.setString(1, user.getNome());
+            updateStatement.setString(2, user.getEmail());
+            //Colocando para que execute o sql
             updateStatement.execute();
 
             connection.commit();
 
         } catch (Exception e ) {
+            //Fazendo um catch caso tenha algum erro.
             connection.rollback();
             e.printStackTrace();
         }
     }
-
-
-
-
 }

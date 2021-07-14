@@ -43,4 +43,13 @@ public class BankJdbc {
         System.out.println(user);
 
     }
+
+    public void initUpdate() throws Exception{
+        UserDao userDao = new UserDao();
+
+
+
+
+    }
+
 }

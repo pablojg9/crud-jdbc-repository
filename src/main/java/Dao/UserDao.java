@@ -80,4 +80,25 @@ public class UserDao {
 
         return userReturn;
     }
+
+    public void update(User user) throws SQLException {
+        try {
+            String sql = "UPDATE useposjava SET nome = ? WHERE idtable = " + user.getId();
+
+            PreparedStatement updateStatement = connection.prepareStatement(sql);
+
+            updateStatement.setString(1, user.getNome());
+            updateStatement.execute();
+
+            connection.commit();
+
+        } catch (Exception e ) {
+            connection.rollback();
+            e.printStackTrace();
+        }
+    }
+
+
+
+
 }

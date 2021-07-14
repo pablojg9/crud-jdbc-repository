@@ -12,6 +12,7 @@ import java.util.List;
 
 public class UserDao {
 
+    //Criando uma variavel para a conexão no banco de dados
     private Connection connection  = null;
 
     public UserDao() {

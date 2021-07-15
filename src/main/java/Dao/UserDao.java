@@ -23,14 +23,13 @@ public class UserDao {
         try {
 
             // Adicionando o user
-            String sql = "insert into useposjava (idtable, nome, email) values (?, ?, ?)";
+            String sql = "insert into useposjava (nome, email) values (?, ?)";
             PreparedStatement insert = connection.prepareStatement(sql);
             // assim que criar o id ele vai pegar o email e mandar pro banco
-            insert.setLong(1, user.getId());
             //assim que criar o nome ele vai pegar o email e mandar pro banco
-            insert.setString(2, user.getNome());
+            insert.setString(1, user.getNome());
             //assim que criar o email ele vai pegar o email e mandar pro banco
-            insert.setString(3, user.getEmail());
+            insert.setString(2, user.getEmail());
             insert.execute();
             connection.commit();
 

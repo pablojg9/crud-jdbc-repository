@@ -14,7 +14,6 @@ public class BankJdbc {
 
 
         //Setando e adicionando o user no banco de dados
-        userModel.setId(6L);
         userModel.setNome("pabloGuti");
         userModel.setEmail("pabloGuti@gmail.com");
 

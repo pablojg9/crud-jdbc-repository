@@ -76,7 +76,9 @@ public class BankJdbc {
     @Test
     public void initDelete() {
         try {
-
+            UserDao userDao = new UserDao();
+            userDao.delete(10L);
+            System.out.println("Usuario deletado");
 
 
         }catch (Exception e) {

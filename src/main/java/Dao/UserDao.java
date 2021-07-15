@@ -114,7 +114,7 @@ public class UserDao {
     public void delete(Long id) throws SQLException {
         try {
             //DELETANDO ATRÁVES DO BANCO
-            String sql = "DELETE * FROM WHERE = idtable" + id;
+            String sql = "DELETE FROM useposjava WHERE idtable = " + id;
             PreparedStatement deleteStatement = connection.prepareStatement(sql);
 
             deleteStatement.execute();

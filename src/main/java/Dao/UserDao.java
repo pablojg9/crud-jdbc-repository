@@ -110,4 +110,21 @@ public class UserDao {
             e.printStackTrace();
         }
     }
+
+    public void delete(Long id) throws SQLException {
+        try {
+            //DELETANDO ATRÁVES DO BANCO
+            String sql = "DELETE * FROM WHERE = idtable" + id;
+            PreparedStatement deleteStatement = connection.prepareStatement(sql);
+
+            deleteStatement.execute();
+            connection.commit();
+
+
+        } catch (Exception e) {
+            connection.rollback();
+            e.printStackTrace();
+        }
+    }
+
 }

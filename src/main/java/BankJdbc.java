@@ -71,9 +71,17 @@ public class BankJdbc {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Test
+    public void initDelete() {
+        try {
 
 
 
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 

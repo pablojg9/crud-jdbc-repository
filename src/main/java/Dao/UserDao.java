@@ -69,7 +69,7 @@ public class UserDao {
         return listUser;
     }
 
-    //Busanco o user atráves do id
+    //Buscando o user atráves do id
     public User search(Long id) throws Exception {
         User userReturn = new User();
 

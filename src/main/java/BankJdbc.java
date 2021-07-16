@@ -13,7 +13,6 @@ public class BankJdbc {
         UserDao userDao = new UserDao();
         User userModel = new User();
 
-
         //Setando e adicionando o user no banco de dados
         userModel.setNome("pabloGuti");
         userModel.setEmail("pabloGuti@gmail.com");
@@ -23,7 +22,6 @@ public class BankJdbc {
 
     @Test
     public void initList() {
-
         try {
             // Criando um uma lista para pegar o id, nome, email
             UserDao userDao = new UserDao();
@@ -39,7 +37,6 @@ public class BankJdbc {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     @Test
@@ -50,12 +47,10 @@ public class BankJdbc {
         User user = userDao.search(5L);
         //Mostrando no console o usuario encontrado
         System.out.println(user);
-
     }
 
     @Test
     public void initUpdate(){
-
         try {
             UserDao userDao = new UserDao();
 
@@ -82,7 +77,6 @@ public class BankJdbc {
             userDao.delete(10L);
             System.out.println("Usuario deletado");
 
-
         }catch (Exception e) {
             e.printStackTrace();
         }
@@ -91,7 +85,6 @@ public class BankJdbc {
 
     @Test
     public void initInsertPhone() {
-
         try {
             Telephone telephone = new Telephone();
             UserDao userDao = new UserDao();
@@ -107,8 +100,6 @@ public class BankJdbc {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 
 }

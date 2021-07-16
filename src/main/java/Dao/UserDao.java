@@ -67,11 +67,8 @@ public class UserDao {
         }
     }
 
-
     public List<User> list() throws Exception {
         List<User> listUser = new ArrayList<User>();
-
-
 
             String sql = "SELECT * FROM  useposjava";
             // Preprando o PreparedStatement para a variavel sql;
@@ -108,7 +105,6 @@ public class UserDao {
             userReturn.setEmail(result.getString("email"));
 
         }
-
         return userReturn;
     }
 
@@ -148,5 +144,4 @@ public class UserDao {
             e.printStackTrace();
         }
     }
-
 }

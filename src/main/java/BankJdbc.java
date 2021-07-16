@@ -77,6 +77,7 @@ public class BankJdbc {
     public void initDelete() {
         try {
             UserDao userDao = new UserDao();
+            //Setando qual o usuario quer deletar atraves do id
             userDao.delete(10L);
             System.out.println("Usuario deletado");
 

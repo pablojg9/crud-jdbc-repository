@@ -53,15 +53,18 @@ public class UserDao {
             PreparedStatement insert = connection.prepareStatement(sql);
             insert.setString(1, phone.getNumber());
             insert.setString(2, phone.getType());
-
-
-
+            insert.setLong(3, phone.getUser());
+            insert.execute();
+            connection.commit();
 
         } catch (Exception e) {
+            try {
+                connection.rollback();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
             e.printStackTrace();
         }
-
-
     }
 
 

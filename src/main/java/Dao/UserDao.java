@@ -104,14 +104,11 @@ public class UserDao {
             userReturn.setId(result.getLong("idtable"));
             userReturn.setNome(result.getString("nome"));
             userReturn.setEmail(result.getString("email"));
-
         }
         return userReturn;
     }
 
     public List<BeanUserFone> beanUserFoneList(Long idUser) {
-
-
             List<BeanUserFone> beanUserFoneList = new ArrayList<BeanUserFone>();
 
             String sql = " select nome, numero, email from telefoneuser as fone ";
@@ -167,9 +164,25 @@ public class UserDao {
             deleteStatement.execute();
             connection.commit();
 
-
         } catch (Exception e) {
             connection.rollback();
+            e.printStackTrace();
+        }
+    }
+
+    public void isDelete(Long id) {
+        try {
+            String sqlPhone = "DELETE FROM telefoneuser WHERE userpessoa = " + id;
+            String sqlUser = "DELETE FROM useposjava where idtable = "+ id;
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlPhone);
+            preparedStatement.executeUpdate();
+            connection.commit();
+
+            preparedStatement = connection.prepareStatement(sqlUser);
+            preparedStatement.executeUpdate();
+            connection.commit();
+
+        }catch (Exception e) {
             e.printStackTrace();
         }
     }

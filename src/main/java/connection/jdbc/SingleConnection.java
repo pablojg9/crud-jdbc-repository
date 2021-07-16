@@ -43,6 +43,5 @@ public class SingleConnection {
     //Fazendo um get para pegar a conexão que era private e que foi encapsulada.
     public static Connection getConnection(){
         return connection;
-
     }
 }

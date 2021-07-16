@@ -118,8 +118,12 @@ public class BankJdbc {
         }catch (Exception e){
             e.printStackTrace();
         }
-
     }
 
-
+    @Test
+    public void deleteFather(){
+        UserDao userDao = new UserDao();
+        userDao.isDelete(13L);
+        System.out.println("Deletado com sucesso!");
+    }
 }

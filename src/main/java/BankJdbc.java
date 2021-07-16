@@ -1,4 +1,5 @@
 import Dao.UserDao;
+import model.Telephone;
 import model.User;
 import org.junit.Test;
 
@@ -85,6 +86,28 @@ public class BankJdbc {
         }catch (Exception e) {
             e.printStackTrace();
         }
+
+    }
+
+    @Test
+    public void initInsertPhone() {
+
+        try {
+            Telephone telephone = new Telephone();
+            UserDao userDao = new UserDao();
+
+            telephone.setNumber("(11) 4765-9899");
+            telephone.setType("celular");
+            telephone.setUser(13L);
+
+            userDao.savePhone(telephone);
+
+            System.out.println("Salvado no banco de dados o telefone!");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
     }
 

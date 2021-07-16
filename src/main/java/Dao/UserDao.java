@@ -15,7 +15,7 @@ import java.util.List;
 public class UserDao {
 
     //Criando uma variavel para a conexão no banco de dados
-    private Connection connection  = null;
+    private Connection connection = null;
 
     public UserDao() {
         connection = SingleConnection.getConnection();
@@ -114,10 +114,10 @@ public class UserDao {
 
             List<BeanUserFone> beanUserFoneList = new ArrayList<BeanUserFone>();
 
-            String sql = " SELECT nome, numero, email from telefoneuser as fone ";
-            sql += "inner join useposjava as userp";
-            sql += "on fone.userpessoa = userp.idtable";
-            sql += "userp.idtable = " + idUser;
+            String sql = " select nome, numero, email from telefoneuser as fone ";
+            sql += " inner join useposjava as userp ";
+            sql += " on fone.userpessoa = userp.idtable ";
+            sql += "where userp.idtable = " + idUser;
 
             try {
             PreparedStatement beanStatement = connection.prepareStatement(sql);

@@ -1,8 +1,10 @@
 import Dao.UserDao;
+import model.BeanUserFone;
 import model.Telephone;
 import model.User;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BankJdbc {
@@ -101,5 +103,23 @@ public class BankJdbc {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void loadPhoneUser() {
+        try {
+            UserDao userDao = new UserDao();
+            List<BeanUserFone> beanUserFoneList = userDao.beanUserFoneList(13L);
+
+            for (BeanUserFone beanUserFone: beanUserFoneList) {
+                System.out.println(beanUserFone);
+                System.out.println("==========================================================================");
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
+
 
 }

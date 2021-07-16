@@ -1,6 +1,7 @@
 package Dao;
 
 import connection.jdbc.SingleConnection;
+import model.BeanUserFone;
 import model.Telephone;
 import model.User;
 
@@ -106,6 +107,34 @@ public class UserDao {
 
         }
         return userReturn;
+    }
+
+    public List<BeanUserFone> beanUserFoneList(Long idUser) {
+
+
+            List<BeanUserFone> beanUserFoneList = new ArrayList<BeanUserFone>();
+
+            String sql = " SELECT nome, numero, email from telefoneuser as fone ";
+            sql += "inner join useposjava as userp";
+            sql += "on fone.userpessoa = userp.idtable";
+            sql += "userp.idtable = " + idUser;
+
+            try {
+            PreparedStatement beanStatement = connection.prepareStatement(sql);
+            ResultSet resultSet = beanStatement.executeQuery();
+
+            while(resultSet.next()) {
+                BeanUserFone userFone = new BeanUserFone();
+                userFone.setEmail(resultSet.getString("email"));
+                userFone.setName(resultSet.getString("nome"));
+                userFone.setNumber(resultSet.getString("numero"));
+
+                beanUserFoneList.add(userFone);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return beanUserFoneList;
     }
 
     public void update(User user) throws SQLException {

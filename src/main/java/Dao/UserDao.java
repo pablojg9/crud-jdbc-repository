@@ -1,6 +1,7 @@
 package Dao;
 
 import connection.jdbc.SingleConnection;
+import model.Telephone;
 import model.User;
 
 import java.sql.Connection;
@@ -45,6 +46,24 @@ public class UserDao {
             e.printStackTrace();
         }
     }
+
+    public void savePhone(Telephone phone) {
+        try {
+            String sql = "insert into telefoneuser(numero, tipo, userpessoa) values (?, ?, ?)";
+            PreparedStatement insert = connection.prepareStatement(sql);
+            insert.setString(1, phone.getNumber());
+            insert.setString(2, phone.getType());
+
+
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
 
     public List<User> list() throws Exception {
         List<User> listUser = new ArrayList<User>();

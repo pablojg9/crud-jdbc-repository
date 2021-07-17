@@ -41,8 +41,7 @@ public class Telephone {
 
     @Override
     public String toString() {
-        return "Telefone{" +
-                "id=" + id +
+        return "Telefone{" + "id=" + id +
                 ", number='" + number + '\'' +
                 ", type='" + type + '\'' +
                 ", user=" + user +

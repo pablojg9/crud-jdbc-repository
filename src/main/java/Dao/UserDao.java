@@ -23,7 +23,6 @@ public class UserDao {
 
     public void save(User user) {
         try {
-
             // Adicionando o user
             String sql = "insert into useposjava (nome, email) values (?, ?)";
             PreparedStatement insert = connection.prepareStatement(sql);

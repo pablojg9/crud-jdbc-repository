@@ -3,8 +3,6 @@ import model.BeanUserFone;
 import model.Telephone;
 import model.User;
 import org.junit.Test;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class BankJdbc {

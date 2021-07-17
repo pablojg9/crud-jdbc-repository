@@ -32,8 +32,7 @@ public class BeanUserFone {
 
     @Override
     public String toString() {
-        return "BeanUserFone{" +
-                "name='" + name + '\'' +
+        return "BeanUserFone{" + "name='" + name + '\'' +
                 ", number='" + number + '\'' +
                 ", email='" + email + '\'' +
                 '}';
